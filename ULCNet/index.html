@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>FhG IIS AINR</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/trackswitch.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://cdn.rawgit.com/download/polymer-cdn/1.5.0/lib/webcomponentsjs/webcomponents-lite.min.js"></script>
+</head>
+
+<body>
+    <div class="article-clean">
+        <div class="container">
+            <div class="row">
+                <div class="text">
+                    <div class="intro", style="text-align: center">
+                        <h1 class="text-center"><br><br>ULTRA LOW COMPLEXITY DEEP LEARNING BASED NOISE SUPPRESSION<br></h1>
+                        <h5 class="text-center"><i> Shrishti Saha Shetu, Soumitro Chakrabarty, Oliver Thiergart, Edwin Mabande</i> <br><br></h5>
+                        <a href="https://www.iis.fraunhofer.de/en/ff/amm.html"> <img src="./assets/img/fhg_iis_logo.png" alt="FhG_IIS" width="240" height="77" ></img></a>
+                        <h5 class="text-center"> Fraunhofer IIS, Am Wolfsmantel 33, 91058 Erlangen, Germany</h5>
+                        <p class="text-center"><i>{shrishti.saha.shetu, soumitro.chakrabarty, oliver.thiergart, edwin.mabande}@iis.fraunhofer.de</i> <br></p>
+                        <p class="text-center"> </p>
+                    </div>
+                    <div class="text">
+                        <h2>Abstract</h2>
+                        <p class="text-justify"> This paper introduces an innovative method for reducing the computational complexity of deep neural networks in real-time speech enhancement on resource-constrained devices. 
+                            The proposed approach utilizes a two-stage processing framework, employing channelwise feature reorientation to reduce the computational load of convolutional operations. 
+                            By combining this with a novel power law compression technique for enhanced perceptual quality, this approach achieves noise suppression performance comparable to state-of-the-art methods.
+                            Our proposed model has 688K parameters and achieves 12.7% real time factor on a single core of an A53 processor with a complexity of 0.097 GMACs.<br></p>
+                        <figure></figure>
+                        <p></p>
+                    </div>
+                    <div class="text">
+                        <h2>Processing Methods</h2>
+                        <p>In our work, for the listening test we evaluate our two proposed methods, ULCNet<sub>Freq </sub> and ULCNet<sub>MS</sub>  against
+                            three existing approaches from literature: FullSubNet+, DeepFilterNet and DeepFilterNet2 .
+                          <br>
+                          <h2>1. Preference Test Samples</h2>
+                        </p>
+                        <h5>Item 1</h5>
+                        <p>
+                          <div class="choir">
+                              <ts-track title="Noisy">
+                                  <ts-source src="./audio/Preference/0/Noisy.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="ULCNetFreq">
+                                  <ts-source src="./audio/Preference/0/Freq.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="DeepFilterNet2">
+                                  <ts-source src="./audio/Preference/0/df2.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="DeepFilterNet">
+                                  <ts-source src="./audio/Preference/0/df.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="ULCNetMS">
+                                <ts-source src="./audio/Preference/0/MS.mp3"></ts-source>
+                            </ts-track>
+                              <ts-track title="FullSubNet+">
+                                <ts-source src="./audio/Preference/0/FS2.mp3"></ts-source>
+                            </ts-track>
+                          </div>
+
+                        </p>
+                        <h5>Item 2</h5>
+                        <p>
+                          <div class="choir">
+                              <ts-track title="Noisy">
+                                  <ts-source src="./audio/Preference/2/Noisy.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="ULCNetFreq">
+                                  <ts-source src="./audio/Preference/2/Freq.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="DeepFilterNet2">
+                                  <ts-source src="./audio/Preference/2/df2.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="DeepFilterNet">
+                                  <ts-source src="./audio/Preference/2/df.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="ULCNetMS">
+                                <ts-source src="./audio/Preference/2/MS.mp3"></ts-source>
+                            </ts-track>
+                              <ts-track title="FullSubNet+">
+                                <ts-source src="./audio/Preference/2/FS2.mp3"></ts-source>
+                            </ts-track>
+                          </div>
+
+                        </p>
+                        <h5>Item 3</h5>
+                        <p>
+                          <div class="choir">
+                              <ts-track title="Noisy">
+                                  <ts-source src="./audio/Preference/4/Noisy.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="ULCNetFreq">
+                                  <ts-source src="./audio/Preference/4/Freq.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="DeepFilterNet2">
+                                  <ts-source src="./audio/Preference/4/df2.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="DeepFilterNet">
+                                  <ts-source src="./audio/Preference/4/df.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="ULCNetMS">
+                                <ts-source src="./audio/Preference/4/MS.mp3"></ts-source>
+                            </ts-track>
+                              <ts-track title="FullSubNet+">
+                                <ts-source src="./audio/Preference/4/FS2.mp3"></ts-source>
+                            </ts-track>
+                          </div>
+
+                        </p>
+                        <h5>Item 4</h5>
+                        <p>
+                          <div class="choir">
+                              <ts-track title="Noisy">
+                                  <ts-source src="./audio/Preference/9/Noisy.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="ULCNetFreq">
+                                  <ts-source src="./audio/Preference/9/Freq.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="DeepFilterNet2">
+                                  <ts-source src="./audio/Preference/9/df2.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="DeepFilterNet">
+                                  <ts-source src="./audio/Preference/9/df.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="ULCNetMS">
+                                <ts-source src="./audio/Preference/9/MS.mp3"></ts-source>
+                            </ts-track>
+                              <ts-track title="FullSubNet+">
+                                <ts-source src="./audio/Preference/9/FS2.mp3"></ts-source>
+                            </ts-track>
+                          </div>
+                          <h5>Item 5</h5>
+                        <p>
+                          <div class="choir">
+                              <ts-track title="Noisy">
+                                  <ts-source src="./audio/Preference/12/Noisy.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="ULCNetFreq">
+                                  <ts-source src="./audio/Preference/12/Freq.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="DeepFilterNet2">
+                                  <ts-source src="./audio/Preference/12/df2.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="DeepFilterNet">
+                                  <ts-source src="./audio/Preference/12/df.mp3"></ts-source>
+                              </ts-track>
+                              <ts-track title="ULCNetMS">
+                                <ts-source src="./audio/Preference/12/MS.mp3"></ts-source>
+                            </ts-track>
+                              <ts-track title="FullSubNet+">
+                                <ts-source src="./audio/Preference/12/FS2.mp3"></ts-source>
+                            </ts-track>
+                          </div>
+
+                        </p>
+
+
+                        <h2>2. MUSHRA Samples</h2>
+                    </p>
+                    <h5>Item 1</h5>
+                    <p>
+                      <div class="choir">
+                          <ts-track title="Noisy">
+                              <ts-source src="./audio/MUSHRAFINAL/3/Noisy.mp3"></ts-source>
+                          </ts-track>
+                          <ts-track title="ULCNetFreq">
+                              <ts-source src="./audio/MUSHRAFINAL/3/Freq.mp3"></ts-source>
+                          </ts-track>
+                          <ts-track title="DeepFilterNet2">
+                              <ts-source src="./audio/MUSHRAFINAL/3/df2.mp3"></ts-source>
+                          </ts-track>
+                          <ts-track title="DeepFilterNet">
+                              <ts-source src="./audio/MUSHRAFINAL/3/df.mp3"></ts-source>
+                          </ts-track>
+                          <ts-track title="ULCNetMS">
+                            <ts-source src="./audio/MUSHRAFINAL/3/MS.mp3"></ts-source>
+                        </ts-track>
+                          <ts-track title="FullSubNet+">
+                            <ts-source src="./audio/MUSHRAFINAL/3/FS2.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="Clean">
+                            <ts-source src="./audio/MUSHRAFINAL/3/clean.mp3"></ts-source>
+                        </ts-track>
+                      </div>
+
+                    </p>
+                    <h5>Item 2</h5>
+                    <p>
+                      <div class="choir">
+                        <ts-track title="Noisy">
+                            <ts-source src="./audio/MUSHRAFINAL/2/Noisy.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="ULCNetFreq">
+                            <ts-source src="./audio/MUSHRAFINAL/2/Freq.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="DeepFilterNet2">
+                            <ts-source src="./audio/MUSHRAFINAL/2/df2.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="DeepFilterNet">
+                            <ts-source src="./audio/MUSHRAFINAL/2/df.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="ULCNetMS">
+                          <ts-source src="./audio/MUSHRAFINAL/2/MS.mp3"></ts-source>
+                      </ts-track>
+                        <ts-track title="FullSubNet+">
+                          <ts-source src="./audio/MUSHRAFINAL/2/FS2.mp3"></ts-source>
+                      </ts-track>
+                      <ts-track title="Clean">
+                        <ts-source src="./audio/MUSHRAFINAL/2/clean.mp3"></ts-source>
+                    </ts-track>
+                      </div>
+
+                    </p>
+                    <h5>Item 3</h5>
+                    <p>
+                      <div class="choir">
+                        <ts-track title="Noisy">
+                            <ts-source src="./audio/MUSHRAFINAL/1/Noisy.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="ULCNetFreq">
+                            <ts-source src="./audio/MUSHRAFINAL/11/Freq.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="DeepFilterNet2">
+                            <ts-source src="./audio/MUSHRAFINAL/11/df2.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="DeepFilterNet">
+                            <ts-source src="./audio/MUSHRAFINAL/11/df.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="ULCNetMS">
+                          <ts-source src="./audio/MUSHRAFINAL/11/MS.mp3"></ts-source>
+                      </ts-track>
+                        <ts-track title="FullSubNet+">
+                          <ts-source src="./audio/MUSHRAFINAL/11/FS2.mp3"></ts-source>
+                      </ts-track>
+                      <ts-track title="Clean">
+                        <ts-source src="./audio/MUSHRAFINAL/11/clean.mp3"></ts-source>
+                    </ts-track>
+                      </div>
+
+                    </p>
+                    <h5>Item 4</h5>
+                    <p>
+                      <div class="choir">
+                        <ts-track title="Noisy">
+                            <ts-source src="./audio/MUSHRAFINAL/7/Noisy.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="ULCNetFreq">
+                            <ts-source src="./audio/MUSHRAFINAL/7/Freq.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="DeepFilterNet2">
+                            <ts-source src="./audio/MUSHRAFINAL/7/df2.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="DeepFilterNet">
+                            <ts-source src="./audio/MUSHRAFINAL/7/df.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="ULCNetMS">
+                          <ts-source src="./audio/MUSHRAFINAL/7/MS.mp3"></ts-source>
+                      </ts-track>
+                        <ts-track title="FullSubNet+">
+                          <ts-source src="./audio/MUSHRAFINAL/7/FS2.mp3"></ts-source>
+                      </ts-track>
+                      <ts-track title="Clean">
+                        <ts-source src="./audio/MUSHRAFINAL/7/clean.mp3"></ts-source>
+                    </ts-track>
+                      </div>
+                      <h5>Item 5</h5>
+                    <p>
+                      <div class="choir">
+                        <ts-track title="Noisy">
+                            <ts-source src="./audio/MUSHRAFINAL/6/Noisy.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="ULCNetFreq">
+                            <ts-source src="./audio/MUSHRAFINAL/6/Freq.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="DeepFilterNet2">
+                            <ts-source src="./audio/MUSHRAFINAL/6/df2.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="DeepFilterNet">
+                            <ts-source src="./audio/MUSHRAFINAL/6/df.mp3"></ts-source>
+                        </ts-track>
+                        <ts-track title="ULCNetMS">
+                          <ts-source src="./audio/MUSHRAFINAL/6/MS.mp3"></ts-source>
+                      </ts-track>
+                        <ts-track title="FullSubNet+">
+                          <ts-source src="./audio/MUSHRAFINAL/6/FS2.mp3"></ts-source>
+                      </ts-track>
+                      <ts-track title="Clean">
+                        <ts-source src="./audio/MUSHRAFINAL/6/clean.mp3"></ts-source>
+                    </ts-track>
+                      </div>
+
+                    </p>
+
+                        </p>
+                        </div></p>
+                        <figure></figure>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/trackswitch.js"></script>
+    <script type="text/javascript">
+    var settings = {
+    onlyradiosolo: true,
+    repeat: true,
+};
+        jQuery(document).ready(function() {
+            jQuery(".choir").trackSwitch(settings); // All other players are default
+            jQuery(".piano").trackSwitch(settings);
+            jQuery(".guitar").trackSwitch(settings);
+            jQuery(".organ").trackSwitch(settings);
+        });
+    </script>
+</body>
+
+</html>
